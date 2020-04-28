@@ -5,4 +5,8 @@
     <RootNamespace>ExcelHelper_2._0</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="EPPlus" Version="4.5.3.3" />
+  </ItemGroup>
+
 </Project>
