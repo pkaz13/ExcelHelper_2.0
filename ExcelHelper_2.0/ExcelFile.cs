@@ -3,15 +3,14 @@ using System.IO;
 
 namespace ExcelHelper_2
 {
-    class ExcelFie : IExcelFile
+    class ExcelFile : IExcelFile
     {
         private readonly ExcelPackage _excel;
 
-        public ExcelFie(ExcelPackage excel)
+        public ExcelFile(ExcelPackage excel)
         {
             _excel = excel;
         }
-
 
         public void Save(FileInfo fileInfo)
         {

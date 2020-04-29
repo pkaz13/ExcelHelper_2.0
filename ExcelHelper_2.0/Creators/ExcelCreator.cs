@@ -21,7 +21,7 @@ namespace ExcelHelper_2.Creators
 
             double minimumWidth = 0;
             worksheet.Cells.AutoFitColumns(minimumWidth);
-            return new ExcelFie(excelFile);
+            return new ExcelFile(excelFile);
         }
 
         private void SetColumnNames(ExcelWorksheet worksheet, List<string> columnNames)
