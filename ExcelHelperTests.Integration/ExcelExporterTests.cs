@@ -11,11 +11,10 @@ namespace ExcelHelperTests.Integration
         IExcelCreator _excelCreator;
         IExcelExporter _excelExporter;
 
-        const string path = @"C:\Users\piotr\Desktop\test.xlsx";
-        //const string path = @"\..\..\..\test.xlsx";
+        const string path = @"..\..\..\..\test.xlsx";
 
         [SetUp]
-        public void MyTestMethod()
+        public void SetUp()
         {
             _excelCreator = new ExcelCreator();
             _excelExporter = new ExcelExporter(_excelCreator);
