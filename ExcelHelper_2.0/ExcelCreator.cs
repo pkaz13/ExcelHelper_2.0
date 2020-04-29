@@ -4,10 +4,13 @@ using System.Collections.Generic;
 
 namespace ExcelHelper_2
 {
-    class ExcelCreator : IExcelCreator
+    public class ExcelCreator : IExcelCreator
     {
         private const string startCell = "A1";
 
+        /// <summary>
+        /// Creates Excel package based on T.
+        /// </summary>
         public IExcelFile Create<T>(IEnumerable<T> collection, string worksheetName, List<string> columnNames)
         {
             using (ExcelPackage excelFile = new ExcelPackage())
