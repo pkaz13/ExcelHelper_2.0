@@ -1,6 +1,6 @@
 ﻿using OfficeOpenXml;
 
-namespace ExcelHelper_2._0
+namespace ExcelHelper_2
 {
     class ExcelFie : IExcelFile
     {

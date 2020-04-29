@@ -1,11 +1,11 @@
-﻿using ExcelHelper_2._0.Attributes;
+﻿using ExcelHelper_2.Attributes;
 using OfficeOpenXml;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 
-namespace ExcelHelper_2._0.Utils
+namespace ExcelHelper_2.Utils
 {
     static class EPPlusExtensions
     {

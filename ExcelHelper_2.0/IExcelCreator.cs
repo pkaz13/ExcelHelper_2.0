@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace ExcelHelper_2._0
+namespace ExcelHelper_2
 {
     public interface IExcelCreator
     {

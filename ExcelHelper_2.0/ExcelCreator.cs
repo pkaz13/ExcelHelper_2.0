@@ -1,8 +1,8 @@
-﻿using ExcelHelper_2._0.Utils;
+﻿using ExcelHelper_2.Utils;
 using OfficeOpenXml;
 using System.Collections.Generic;
 
-namespace ExcelHelper_2._0
+namespace ExcelHelper_2
 {
     class ExcelCreator : IExcelCreator
     {

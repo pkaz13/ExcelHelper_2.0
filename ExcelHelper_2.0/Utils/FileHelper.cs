@@ -1,6 +1,6 @@
 ﻿using System.IO;
 
-namespace ExcelHelper_2._0.Utils
+namespace ExcelHelper_2.Utils
 {
     class FileHelper
     {
