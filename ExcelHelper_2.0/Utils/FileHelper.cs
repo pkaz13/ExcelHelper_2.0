@@ -4,7 +4,7 @@ namespace ExcelHelper_2.Utils
 {
     class FileHelper
     {
-        static FileInfo DeleteFileIfExist(FileInfo newFile)
+        public static FileInfo DeleteFileIfExistAndCreateNewFile(FileInfo newFile)
         {
             if (newFile.Exists)
             {
@@ -14,7 +14,7 @@ namespace ExcelHelper_2.Utils
             return newFile;
         }
 
-        static string FixFileNameExcel(string fileName)
+        public static string FixFileNameExcel(string fileName)
         {
             if (Path.HasExtension(fileName))
             {
