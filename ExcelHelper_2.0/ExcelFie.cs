@@ -1,14 +1,20 @@
 ﻿using OfficeOpenXml;
+using System.IO;
 
 namespace ExcelHelper_2
 {
     class ExcelFie : IExcelFile
     {
-        public ExcelPackage Excel { get; }
+        private readonly ExcelPackage _excel;
 
         public ExcelFie(ExcelPackage excel)
         {
-            Excel = excel;
+            _excel = excel;
+        }
+
+        public void Save(FileInfo fileInfo)
+        {
+            _excel.SaveAs(fileInfo);
         }
     }
 }

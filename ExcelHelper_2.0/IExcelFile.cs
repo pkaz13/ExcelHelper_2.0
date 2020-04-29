@@ -1,9 +1,9 @@
-﻿using OfficeOpenXml;
+﻿using System.IO;
 
-namespace ExcelHelper_2._0
+namespace ExcelHelper_2
 {
     public interface IExcelFile
     {
-        ExcelPackage Excel { get; }
+        void Save(FileInfo fileInfo);
     }
 }
