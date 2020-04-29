@@ -22,8 +22,10 @@ namespace ExcelHelper_2.Exporters
         public void Export<T>(IEnumerable<T> collection, List<string> columnNames, string path)
         {
             FileInfo fileInfo = CreateFileInfo(path);
-            IExcelFile excelFile = _excelCreator.Create(collection, sheetName, columnNames);
-            excelFile.Save(fileInfo);
+            using (IExcelFile excelFile = _excelCreator.Create(collection, sheetName, columnNames))
+            {
+                excelFile.Save(fileInfo);
+            }
         }
 
         private FileInfo CreateFileInfo(string path)

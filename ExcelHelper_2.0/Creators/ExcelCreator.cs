@@ -13,17 +13,15 @@ namespace ExcelHelper_2.Creators
         /// </summary>
         public IExcelFile Create<T>(IEnumerable<T> collection, string worksheetName, List<string> columnNames)
         {
-            using (ExcelPackage excelFile = new ExcelPackage())
-            {
-                ExcelWorksheet worksheet = excelFile.Workbook.Worksheets.Add(worksheetName);
-                worksheet.Cells[startCell].LoadFromCollectionFiltered(collection);
+            ExcelPackage excelFile = new ExcelPackage();
+            ExcelWorksheet worksheet = excelFile.Workbook.Worksheets.Add(worksheetName);
+            worksheet.Cells[startCell].LoadFromCollectionFiltered(collection);
 
-                SetColumnNames(worksheet, columnNames);
+            SetColumnNames(worksheet, columnNames);
 
-                double minimumWidth = 0;
-                worksheet.Cells.AutoFitColumns(minimumWidth);
-                return new ExcelFie(excelFile);
-            }
+            double minimumWidth = 0;
+            worksheet.Cells.AutoFitColumns(minimumWidth);
+            return new ExcelFie(excelFile);
         }
 
         private void SetColumnNames(ExcelWorksheet worksheet, List<string> columnNames)

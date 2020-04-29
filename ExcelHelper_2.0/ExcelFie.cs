@@ -12,9 +12,15 @@ namespace ExcelHelper_2
             _excel = excel;
         }
 
+
         public void Save(FileInfo fileInfo)
         {
             _excel.SaveAs(fileInfo);
+        }
+
+        public void Dispose()
+        {
+            _excel.Dispose();
         }
     }
 }
