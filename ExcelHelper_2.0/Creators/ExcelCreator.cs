@@ -2,7 +2,7 @@
 using OfficeOpenXml;
 using System.Collections.Generic;
 
-namespace ExcelHelper_2
+namespace ExcelHelper_2.Creators
 {
     public class ExcelCreator : IExcelCreator
     {
