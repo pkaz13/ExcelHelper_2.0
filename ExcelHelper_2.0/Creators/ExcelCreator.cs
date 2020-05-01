@@ -1,5 +1,7 @@
-﻿using ExcelHelper_2.Utils;
+﻿using ExcelHelper_2._0.Exceptions;
+using ExcelHelper_2.Utils;
 using OfficeOpenXml;
+using System;
 using System.Collections.Generic;
 
 namespace ExcelHelper_2.Creators
@@ -13,15 +15,23 @@ namespace ExcelHelper_2.Creators
         /// </summary>
         public IExcelFile Create<T>(IEnumerable<T> collection, string worksheetName, List<string> columnNames)
         {
-            ExcelPackage excelFile = new ExcelPackage();
-            ExcelWorksheet worksheet = excelFile.Workbook.Worksheets.Add(worksheetName);
-            worksheet.Cells[startCell].LoadFromCollectionFiltered(collection);
+            try
+            {
+                ExcelPackage excelFile = new ExcelPackage();
+                ExcelWorksheet worksheet = excelFile.Workbook.Worksheets.Add(worksheetName);
+                worksheet.Cells[startCell].LoadFromCollectionFiltered(collection);
 
-            SetColumnNames(worksheet, columnNames);
+                SetColumnNames(worksheet, columnNames);
 
-            double minimumWidth = 0;
-            worksheet.Cells.AutoFitColumns(minimumWidth);
-            return new ExcelFile(excelFile);
+                double minimumWidth = 0;
+                worksheet.Cells.AutoFitColumns(minimumWidth);
+                return new ExcelFile(excelFile);
+            }
+            catch (Exception ex)
+            {
+                throw new ExcelCreationException(ex.Message, ex);
+            }
+
         }
 
         private void SetColumnNames(ExcelWorksheet worksheet, List<string> columnNames)

@@ -1,4 +1,6 @@
-﻿using OfficeOpenXml;
+﻿using ExcelHelper_2._0.Exceptions;
+using OfficeOpenXml;
+using System;
 using System.IO;
 
 namespace ExcelHelper_2
@@ -14,7 +16,15 @@ namespace ExcelHelper_2
 
         public void Save(FileInfo fileInfo)
         {
-            _excel.SaveAs(fileInfo);
+            try
+            {
+                _excel.SaveAs(fileInfo);
+            }
+            catch (Exception ex)
+            {
+                throw new ExcelCreationException(ex.Message, ex);
+            }
+
         }
 
         public void Dispose()
