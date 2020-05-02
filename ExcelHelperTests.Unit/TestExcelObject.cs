@@ -10,5 +10,10 @@
             Name = name;
             Value = value;
         }
+
+        public TestExcelObject()
+        {
+
+        }
     }
 }
