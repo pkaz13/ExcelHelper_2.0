@@ -1,4 +1,5 @@
-﻿using ExcelHelper_2.Creators;
+﻿using ExcelHelper_2._0.Wrappers;
+using ExcelHelper_2.Creators;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -8,10 +9,12 @@ namespace ExcelHelper_2._0.Importers
     public class ExcelImporter<T> : IExcelImporter<T> where T : new()
     {
         private readonly IExcelCreator _excelCreator;
+        private readonly IFileStreamWrapper _fileStreamWrapper;
 
-        public ExcelImporter(IExcelCreator excelCreator)
+        public ExcelImporter(IExcelCreator excelCreator, IFileStreamWrapper fileStreamWrapper)
         {
             _excelCreator = excelCreator;
+            _fileStreamWrapper = fileStreamWrapper;
         }
 
         /// <summary>
@@ -24,7 +27,7 @@ namespace ExcelHelper_2._0.Importers
                 throw new ArgumentException("Path cannot be null or empty");
             }
 
-            using (FileStream fileStream = new FileStream(path, FileMode.Open))
+            using (FileStream fileStream = _fileStreamWrapper.Init(path, FileMode.Open))
             using (IExcelFile excelFile = _excelCreator.Create(fileStream))
             {
                 return excelFile.ConvertToObjects<T>();
