@@ -32,7 +32,7 @@ namespace ExcelHelper_2
         {
             try
             {
-                ExcelWorksheet worksheet = _excel.Workbook.Worksheets[1];
+                ExcelWorksheet worksheet = _excel.Workbook.Worksheets[0];
                 return worksheet.ConvertSheetToObjects<T>();
             }
             catch (Exception ex)
