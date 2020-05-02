@@ -1,6 +1,8 @@
 ﻿using ExcelHelper_2._0.Exceptions;
+using ExcelHelper_2.Utils;
 using OfficeOpenXml;
 using System;
+using System.Collections.Generic;
 using System.IO;
 
 namespace ExcelHelper_2
@@ -24,7 +26,19 @@ namespace ExcelHelper_2
             {
                 throw new ExcelCreationException(ex.Message, ex);
             }
+        }
 
+        public IEnumerable<T> ConvertToObjects<T>() where T : new()
+        {
+            try
+            {
+                ExcelWorksheet worksheet = _excel.Workbook.Worksheets[1];
+                return worksheet.ConvertSheetToObjects<T>();
+            }
+            catch (Exception ex)
+            {
+                throw new ExcelConvertionException(ex.Message, ex);
+            }
         }
 
         public void Dispose()
