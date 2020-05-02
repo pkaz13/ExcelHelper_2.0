@@ -3,6 +3,7 @@ using ExcelHelper_2.Utils;
 using OfficeOpenXml;
 using System;
 using System.Collections.Generic;
+using System.IO;
 
 namespace ExcelHelper_2.Creators
 {
@@ -31,7 +32,19 @@ namespace ExcelHelper_2.Creators
             {
                 throw new ExcelCreationException(ex.Message, ex);
             }
+        }
 
+        public IExcelFile Create(FileStream fileStream)
+        {
+            try
+            {
+                ExcelPackage excelFile = new ExcelPackage(fileStream);
+                return new ExcelFile(excelFile);
+            }
+            catch (Exception ex)
+            {
+                throw new ExcelCreationException(ex.Message, ex);
+            }
         }
 
         private void SetColumnNames(ExcelWorksheet worksheet, List<string> columnNames)
