@@ -27,11 +27,13 @@ namespace ExcelHelper_2._0.Importers
                 throw new ArgumentException("Path cannot be null or empty");
             }
 
+            IEnumerable<T> collectionToReturn = new List<T>();
             using (FileStream fileStream = _fileStreamWrapper.Init(path, FileMode.Open))
             using (IExcelFile excelFile = _excelCreator.Create(fileStream))
             {
-                return excelFile.ConvertToObjects<T>();
+                collectionToReturn = new List<T>(excelFile.ConvertToObjects<T>());
             }
+            return collectionToReturn;
         }
     }
 }
