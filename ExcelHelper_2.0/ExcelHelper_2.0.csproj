@@ -8,10 +8,11 @@
     <PackageProjectUrl>https://github.com/pkaz13/ExcelHelper_2.0</PackageProjectUrl>
     <RepositoryUrl>https://github.com/pkaz13/ExcelHelper_2.0.git</RepositoryUrl>
     <PackageTags>Excel EPPlus</PackageTags>
-    <Description>Library which allows to export data from Excel file. Library uses EPPlus 4.5.3.3 library to handle .xlsx files.</Description>
+    <Description>Library which allows to export &amp; import data from Excel file. Library uses EPPlus 4.5.3.3 library to handle .xlsx files.</Description>
     <PackageId>ExcelHelper_2</PackageId>
 	<IncludeSymbols>true</IncludeSymbols>
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <Version>1.1.0</Version>
   </PropertyGroup>
 
   <ItemGroup>
